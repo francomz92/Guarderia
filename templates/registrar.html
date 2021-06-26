@@ -1,0 +1,49 @@
+{% extends 'base_back.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block head %}
+{# Forms CSS File #}
+<link rel="stylesheet" href="{% static 'css/clases.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2 class="fix-title">{{title}}</h2>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>{{ msj }} </p>
+    <div class="form">
+        {% for field in form %}
+        <div class="form-field">
+            <label>{{ field.label }}:</label>
+            {% if title == 'Nuevo Alumno' and forloop.counter == 7 %}
+            <div>
+                {{ field }}
+                <a href="{% url 'administracion:crear_tutor' %}" title="Añadir Tutor">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+            {% elif title == 'Nueva Compra' and forloop.counter == 2 %}
+            <div>
+                {{ field }}
+                <a href="{% url 'administracion:crear_proveedor' %}" title="Añadir Proveedor">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </div>
+            {% else %}
+            {{ field }}
+            {% endif %}
+
+
+            {% if field.errors %}
+            {{ field.errors }}
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </div>
+    <input type="submit" value="Registrar" class="btn btn-outline-success">
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+# Visual Studio Code Settings
+*.vscode
+
+# Data Base
+db.sqlite3
+
+# Folders
+__pycache__/
+**/migrations/
+
+# Virtual Environment
+env/

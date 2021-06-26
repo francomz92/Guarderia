@@ -1,0 +1,36 @@
+{% extends 'listar.html' %}
+{% load static %}
+
+{% block thead %}
+<tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>DNI</th>
+    <th>Rol</th>
+    <th>Titulo</th>
+    <th>Turno</th>
+    <th>Acciones</th>
+</tr>
+{% endblock %}
+{% block tbody %}
+{% for empleado in personal %}
+<tr>
+    <td>{{ empleado.id }}</td>
+    <td>{{ empleado.nombre }}</td>
+    <td>{{ empleado.apellido }}</td>
+    <td>{{ empleado.dni }}</td>
+    <td>{{ empleado.rol | date:"d M Y" }}</td>
+    <td>{{ empleado.titulo | yesno:"Si, No" }}</td>
+    <td>{{ empleado.jornada }}</td>
+    <td>
+        <a href="{% url 'administracion:editar_personal' empleado.id %}" class="btn btn-outline-success sm">Editar</a>
+        <a href="{% url 'administracion:borrar_personal' empleado.id %}" class="btn btn-outline-danger sm borrar">Borrar</a>
+    </td>
+</tr>
+{% endfor %}
+{% endblock %}
+
+{% block extraScript %}
+  <script src="{% static 'js/administracion/personal/personal.js' %}"></script>
+{% endblock %}

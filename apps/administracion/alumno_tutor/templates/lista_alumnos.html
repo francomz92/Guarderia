@@ -1,0 +1,25 @@
+{% extends 'listar.html' %}
+{% load static %}
+
+
+{% block extra_content %}
+<a href="{% url 'administracion:lista_asistencias' %}" class="btn btn-outline-dark registrar" style="float: right;">Asistencias</a>
+{% endblock %}
+
+{% block thead %}
+<tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>DNI</th>
+    <th>Fecha Nacimiento</th>
+    <th>¿Activo?</th>
+    <th>Foto</th>
+    <th>Acciones</th>
+</tr>
+
+{% endblock %}
+
+{% block extraScript %}
+  <script src="{% static 'js/administracion/alumno_tutor/alumnos.js' %}"></script>
+{% endblock %}

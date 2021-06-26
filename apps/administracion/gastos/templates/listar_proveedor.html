@@ -1,0 +1,17 @@
+{% extends 'listar.html' %}
+{% load static %}
+
+{% block thead %}
+<tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>CUIT</th>
+    <th>Dirección</th>
+    <th>Teléfono</th>
+    <th>Acciones</th>
+</tr>
+{% endblock %}
+
+{% block extraScript %}
+  <script src="{% static 'js/administracion/gastos/proveedor.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'listar.html' %}
+{% load static %}
+
+{% block thead %}
+<tr>
+    <th>#</th>
+    <th>Fecha</th>
+    <th>Factura</th>
+    <th>Proveedor</th>
+    <th>CUIT</th>
+    <th>Detalle Concepto</th>
+    <th>Detalle y Cantidad</th>
+    <th>Importe Total</th>
+    <th>Acciones</th>
+</tr>
+{% endblock %}
+
+{% block extraScript %}
+  <script src="{% static 'js/administracion/gastos/compras.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base_back.html' %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block head %}
+{# CSS Files #}
+<link rel="stylesheet" href="{% static 'css/listar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'lib/DataTables/datatables.min.css' %}" />
+<link rel="stylesheet" href="{% static 'lib/DataTables/Responsive-2.2.7/css/responsive.dataTables.min.css' %}" />
+<link rel="stylesheet" href="{% static 'lib/DataTables/Buttons-1.7.0/css/buttons.dataTables.min.css' %}">
+
+{# JS Files #}
+<script src="{% static 'lib/DataTables/datatables.min.js' %}"></script>
+<script src="{% static 'lib/DataTables/Responsive-2.2.7/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/DataTables/Buttons-1.7.0/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'lib/DataTables/Buttons-1.7.0/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'lib/DataTables/Buttons-1.7.0/js/pdfmake.min.js' %}"></script>
+<script src="{% static 'lib/DataTables/Buttons-1.7.0/js/jszip.min.js' %}"></script>
+<script src="{% static 'lib/DataTables/Buttons-1.7.0/js/vfs_fonts.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="table__container">
+    <h2 class="fix-title">{{ title | safe }}</h2>
+
+    
+    {# Button Nuevo Registro #}
+    {% if title == 'Alumnos' %}
+    <a href="{% url 'administracion:crear_alumno' %}" class="btn btn-outline-dark registrar">Registrar {{title}}</a>
+    {% elif title == 'Asistencias' %}
+    <a href="{% url 'administracion:crear_asistencia' %}" class="btn btn-outline-dark registrar">Registrar {{title}}</a>
+    {% elif title == 'Tutores' %}
+    <a href="{% url 'administracion:crear_tutor' %}" class="btn btn-outline-dark registrar">Registrar {{title}}</a>
+    {% elif title == 'Proveedores' %}
+    <a href="{% url 'administracion:crear_proveedor' %}" class="btn btn-outline-dark registrar">Registrar {{title}}</a>
+    {% elif title == 'Compras' %}
+    <a href="{% url 'administracion:crear_compra' %}" class="btn btn-outline-dark registrar">Registrar {{title}}</a>
+    {% else %}
+    <a href="{% url 'administracion:crear_personal' %}" class="btn btn-outline-dark registrar">Registrar {{title}}</a>
+    {% endif %}
+    
+    {% block extra_content %} {% endblock %}
+    
+    <table id="table_id" class="cell-border">
+        <thead>
+            {% block thead %} {% endblock %}
+        </thead>
+        <tbody id="tBody">
+            {% block tbody %} {% endblock %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block javascript %}
+    <script src="{% static 'js/administracion/listar.js' %}"></script>
+{% block extraScript %}{% endblock %}
+{% endblock %}

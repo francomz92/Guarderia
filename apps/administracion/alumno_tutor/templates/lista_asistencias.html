@@ -1,0 +1,25 @@
+{% extends 'listar.html' %}
+{% load static %}
+
+{% block extra_content %}
+<div class="select__mes">
+    {{ mes }}
+</div>
+{% endblock %}
+
+{% block thead %}
+<tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>DNI</th>
+    <th>Asistió</th>
+    <th>Faltó</th>
+    <th>Debio asistir</th>
+    <th>Acciones</th>
+</tr>
+{% endblock %}
+
+{% block extraScript %}
+<script src="{% static 'js/administracion/alumno_tutor/asistencias.js' %}"></script>
+{% endblock %}

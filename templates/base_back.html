@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# CSS Files #}
+    <link rel="stylesheet" href="{% static 'css/clases.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base_back.css' %}">
+    <link rel="stylesheet" href="{% static 'lib/JQuery-Confirm-v3.3.4/css/jquery-confirm.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    {# Script Files #}
+    <script src="https://kit.fontawesome.com/90e0fff1f3.js" crossorigin="anonymous"></script>
+    <script src="{% static 'lib/JQuery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/JQuery-Confirm-v3.3.4/js/jquery-confirm.min.js' %}"></script>
+    {% block head %}{% endblock %}
+</head>
+
+<body class="body">
+    <div class="burgger__div">Menu</div>
+    <input class="burgger" type="checkbox">
+    <aside class="aside">
+        <div class="aside__container">
+            <a href="{% url 'administracion:dashboard' %}">
+                <div class="aside__div">
+                    <img src="{% static 'img/EPI_Rincon_Feliz.jpg' %}" title="Rincón Feliz">
+                </div>
+            </a>
+            <div class="aside__div">
+                <img src="{% static 'img/alumnos.svg' %}" title="Alumnos y Tutores">
+                <a href="{% url 'administracion:lista_tutores' %}">Tutores</a>
+                <a href="{% url 'administracion:lista_alumnos' %}">Alumnos</a>
+            </div>
+            <div class="aside__div">
+                <img src="{% static 'img/personal.svg' %}" title="Personal">
+                <a href="{% url 'administracion:lista_personal' %}">Personal</a>
+                {# <a href="{% url 'administracion:crear_personal' %}">Registro Personal</a> #}
+            </div>
+            <div class="aside__div">
+                <img src="{% static 'img/gastos.svg' %}" title="Gastos">
+                <a href="{% url 'administracion:lista_proveedores' %}">Proveedores</a>
+                <a href="{% url 'administracion:lista_compras' %}">Compras</a>
+            </div>
+            <div class="aside__div">
+                <img src="{% static 'img/select.svg' %}" title="Talleres y Actividades">
+            </div>
+        </div>
+    </aside>
+    <section class="section">
+        {% block content %}{% endblock %}
+    </section>
+    
+    {% block javascript %} {% endblock %}
+</body>
+
+</html>

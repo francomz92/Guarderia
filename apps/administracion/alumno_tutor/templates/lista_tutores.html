@@ -1,0 +1,19 @@
+{% extends 'listar.html' %}
+{% load static %}
+
+{% block thead %}
+<tr>
+    <th>#</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>DNI</th>
+    <th>Teléfono</th>
+    <th>Dirección</th>
+    <th>Foto</th>
+    <th>Acciones</th>
+</tr>
+{% endblock %}
+
+{% block extraScript %}
+  <script src="{% static 'js/administracion/alumno_tutor/tutores.js' %}"></script>
+{% endblock extraScript %}
