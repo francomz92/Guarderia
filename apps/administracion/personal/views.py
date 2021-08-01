@@ -13,7 +13,7 @@ from .models import *
 class CrearPersonal(CreateView):
     model = Personal
     template_name = 'crear_personal.html'
-    success_url = 'administracion:lista_personal'
+    success_url = reverse_lazy('administracion:lista_personal')
     fields = ALL_FIELDS
 
     def get_context_data(self, **kwargs):

@@ -42,7 +42,7 @@ class Tutor(models.Model):
                              ])
 
     def __str__(self) -> str:
-        return self.nombre + self.apellido
+        return f'{self.nombre} {self.apellido}'
 
     class Meta:
         verbose_name = 'Tutor'
@@ -78,7 +78,7 @@ class Alumno(models.Model):
         return model_to_dict(self)
 
     def __str__(self):
-        return self.nombre + self.apellido
+        return f'{self.nombre} {self.apellido}'
 
     class Meta:
         verbose_name = 'Alumno'
